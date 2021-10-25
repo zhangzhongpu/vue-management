@@ -1,20 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import domeRouter from './dome'
+import baseRouter from './base'
 
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/table',
-    name: 'Table',
-    component: () => import(/* webpackChunkName: "about" */ '../views/dome/tableDome.vue')
-  }
+  ...baseRouter,
+  ...domeRouter
 ]
 
 const router = new VueRouter({
